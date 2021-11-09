@@ -22908,7 +22908,7 @@ class MainView extends _reactDefault.default.Component {
                     Description: 'A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.',
                     Genre: 'Thriller',
                     Director: 'Jonathan Demme',
-                    ImagePath: './img/Silenceofthelambs.jpg'
+                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/8/86/The_Silence_of_the_Lambs_poster.jpg'
                 },
                 {
                     _id: 2,
