@@ -23056,6 +23056,7 @@ class MovieView extends _reactDefault.default.Component {
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
                         src: movie.ImagePath,
+                        crossorigin: "anonymous",
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 11
@@ -23162,7 +23163,7 @@ class MovieView extends _reactDefault.default.Component {
                                 lineNumber: 26
                             },
                             __self: this,
-                            children: "Description: "
+                            children: "Director: "
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx("span", {
                             className: "value",
