@@ -22916,7 +22916,7 @@ class MainView extends _reactDefault.default.Component {
                     Description: 'Goaded by his buddies, a nerdy guy who has never done the deed only finds the pressure mounting when he meets a single mother.',
                     Genre: 'Comedy',
                     Director: 'Judd Apatow',
-                    ImagePath: '...'
+                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/4/43/40-Year-OldVirginMoviePoster.jpg'
                 },
                 {
                     _id: 3,
@@ -22924,7 +22924,7 @@ class MainView extends _reactDefault.default.Component {
                     Description: 'A divorced woman and her diabetic daughter take refuge in their newly-purchased house\'s safe room, when three men break in searching for a missing fortune.',
                     Genre: 'Thriller',
                     Director: 'David Fincher',
-                    ImagePath: '...'
+                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/6/67/Panic_Room_poster.jpg'
                 }
             ],
             selectedMovie: null
