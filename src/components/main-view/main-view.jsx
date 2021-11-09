@@ -14,7 +14,7 @@ export class MainView extends React.Component {
                     Description: 'A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.',
                     Genre: 'Thriller',
                     Director: 'Jonathan Demme',
-                    ImagePath: './img/Silenceofthelambs.jpg'
+                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/8/86/The_Silence_of_the_Lambs_poster.jpg'
                 },
                 {
                     _id: 2,
@@ -22,7 +22,7 @@ export class MainView extends React.Component {
                     Description: 'Goaded by his buddies, a nerdy guy who has never done the deed only finds the pressure mounting when he meets a single mother.',
                     Genre: 'Comedy',
                     Director: 'Judd Apatow',
-                    ImagePath: '...'
+                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/4/43/40-Year-OldVirginMoviePoster.jpg'
                 },
                 {
                     _id: 3,
@@ -30,7 +30,7 @@ export class MainView extends React.Component {
                     Description: 'A divorced woman and her diabetic daughter take refuge in their newly-purchased house\'s safe room, when three men break in searching for a missing fortune.',
                     Genre: 'Thriller',
                     Director: 'David Fincher',
-                    ImagePath: '...'
+                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/6/67/Panic_Room_poster.jpg'
                 }
             ],
             selectedMovie: null
