@@ -9,34 +9,20 @@ export class MainView extends React.Component {
     constructor() {
         super();
         this.state = {
-            movies: [
-                {
-                    _id: 1,
-                    Title: 'Silence of the Lambs',
-                    Description: 'A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer.',
-                    Genre: 'Thriller',
-                    Director: 'Jonathan Demme',
-                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/8/86/The_Silence_of_the_Lambs_poster.jpg'
-                },
-                {
-                    _id: 2,
-                    Title: 'The 40-Year-Old Virgin',
-                    Description: 'Goaded by his buddies, a nerdy guy who has never done the deed only finds the pressure mounting when he meets a single mother.',
-                    Genre: 'Comedy',
-                    Director: 'Judd Apatow',
-                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/4/43/40-Year-OldVirginMoviePoster.jpg'
-                },
-                {
-                    _id: 3,
-                    Title: 'Panic Room',
-                    Description: 'A divorced woman and her diabetic daughter take refuge in their newly-purchased house\'s safe room, when three men break in searching for a missing fortune.',
-                    Genre: 'Thriller',
-                    Director: 'David Fincher',
-                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/6/67/Panic_Room_poster.jpg'
-                }
-            ],
+            movies: [],
             selectedMovie: null
         }
+    }
+    componentDidMount() {
+        axios.get('https://myflix-moviesapp.herokuapp.com/movies')
+            .then(response => {
+                this.setState({
+                    movies: response.data
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
     setSelectedMovie(newSelectedMovie) {
         this.setState({
@@ -47,21 +33,19 @@ export class MainView extends React.Component {
     render() {
         const { movies, selectedMovie } = this.state;
 
-
-        if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+        if (movies.length === 0) return <div className="main-view" />;
 
         return (
             <div className="main-view">
                 {selectedMovie
                     ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
                     : movies.map(movie => (
-                        <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
+                        <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
                     ))
                 }
             </div>
         );
     }
-
 }
 
 export default MainView;
