@@ -31,8 +31,8 @@ export class MainView extends React.Component {
                 console.log(error);
             });
     }
-    /* When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie */
 
+    //below code invokes a function which updates the state of selectedMovie to the specific movie 
     setSelectedMovie(movie) {
         this.setState({
             selectedMovie: movie
@@ -61,7 +61,7 @@ export class MainView extends React.Component {
         const { movies, selectedMovie, user, registered } = this.state;
 
         //If there is no registered user the registration view is rendered.  If a user registers in registration details are passed as a prop to RegistrationView
-        if (!registered) return <RegistrationView onRegistration={registered => this.onRegistration(registered)} clickHandler={(e) => this.toggleRegisterView(e)} />;
+        if (!registered) return <RegistrationView onRegistration={registered => this.onRegistration(registered)} />;
         //If there is no identified user then the login view is rendered and the user details are passed as a prop to LoginView
         if (!user)
             return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
