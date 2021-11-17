@@ -22921,7 +22921,8 @@ class MainView extends _reactDefault.default.Component {
             console.log(error);
         });
     }
-    /* When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie */ setSelectedMovie(movie) {
+    //below code invokes a function which updates the state of selectedMovie to the specific movie 
+    setSelectedMovie(movie) {
         this.setState({
             selectedMovie: movie
         });
@@ -22942,8 +22943,6 @@ class MainView extends _reactDefault.default.Component {
         //If there is no registered user the registration view is rendered.  If a user registers in registration details are passed as a prop to RegistrationView
         if (!registered) return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegistrationView, {
             onRegistration: (registered1)=>this.onRegistration(registered1)
-            ,
-            clickHandler: (e)=>this.toggleRegisterView(e)
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
@@ -25618,11 +25617,10 @@ function RegistrationView(props) {
                     })
                 ]
             }),
-            "\n",
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 25
+                    lineNumber: 24
                 },
                 __self: this,
                 children: [
@@ -25634,7 +25632,7 @@ function RegistrationView(props) {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 27
+                            lineNumber: 26
                         },
                         __self: this
                     })
@@ -25643,7 +25641,7 @@ function RegistrationView(props) {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 29
+                    lineNumber: 28
                 },
                 __self: this,
                 children: [
@@ -25655,7 +25653,7 @@ function RegistrationView(props) {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 31
+                            lineNumber: 30
                         },
                         __self: this
                     })
@@ -25664,7 +25662,7 @@ function RegistrationView(props) {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 33
+                    lineNumber: 32
                 },
                 __self: this,
                 children: [
@@ -25676,7 +25674,7 @@ function RegistrationView(props) {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 35
+                            lineNumber: 34
                         },
                         __self: this
                     })
@@ -25687,7 +25685,7 @@ function RegistrationView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 38
+                    lineNumber: 37
                 },
                 __self: this,
                 children: "Register"
