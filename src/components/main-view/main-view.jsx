@@ -15,7 +15,8 @@ export class MainView extends React.Component {
         this.state = {
             movies: [],
             selectedMovie: null,
-            user: null
+            user: null,
+            registered: null
         };
     }
 
@@ -43,7 +44,7 @@ export class MainView extends React.Component {
 
     onRegistration(registered) {
         this.setState({
-            registered,
+            registered
         });
     }
 
