@@ -25557,12 +25557,10 @@ function LoginView(props) {
 _s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");
 _c = LoginView;
 LoginView.propTypes = {
-    login: _propTypesDefault.default.shape({
-        username: _propTypesDefault.default.string.isRequired,
-        password: _propTypesDefault.default.string.isRequired
-    }),
-    onLoggedIn: _propTypesDefault.default.func.isRequired
+    username: _propTypesDefault.default.string,
+    password: _propTypesDefault.default.string
 };
+exports.default = LoginView;
 var _c;
 $RefreshReg$(_c, "LoginView");
 
@@ -25706,14 +25704,12 @@ function RegistrationView(props) {
 _s(RegistrationView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
 _c = RegistrationView;
 RegistrationView.propTypes = {
-    register: _propTypesDefault.default.shape({
-        username: _propTypesDefault.default.string.isRequired,
-        password: _propTypesDefault.default.string.isRequired,
-        email: _propTypesDefault.default.string.isRequired,
-        birthday: _propTypesDefault.default.string.isRequired
-    }),
-    onRegistration: _propTypesDefault.default.func.isRequired
+    username: _propTypesDefault.default.string,
+    email: _propTypesDefault.default.string,
+    birthday: _propTypesDefault.default.string,
+    password: _propTypesDefault.default.string
 };
+exports.default = RegistrationView;
 var _c;
 $RefreshReg$(_c, "RegistrationView");
 
