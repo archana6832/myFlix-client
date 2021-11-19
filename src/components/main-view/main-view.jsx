@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap'; // React Bootstrap
+import './main-view.scss'; //import .scss
 
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
@@ -75,9 +77,34 @@ export class MainView extends React.Component {
         } else {
             return (
                 <div className="main-view">
-                    {selectedMovie ? <MovieView movie={selectedMovie} onBackClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie); }} /> :
-                        movies.map(movie => (<MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />))
-                    }
+                    <Container>
+                        <Navbar bg="navColor" variant="dark" expand="lg" className="mainNavbar">
+                            <Container>
+                                <Navbar.Brand href="#home">myFlix</Navbar.Brand>
+                                <Nav className="me-auto">
+                                    <Nav.Link href="#home">Movies</Nav.Link>
+                                    <Nav.Link href="#user">Profile</Nav.Link>
+                                    <Nav.Link href="#logout">Logout</Nav.Link>
+                                </Nav>
+                            </Container>
+                        </Navbar>
+
+
+                        <Row className="main-view justify-content-md-center">
+                            {selectedMovie
+                                ? (
+                                    <Col md={8}>
+                                        <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                                    </Col>
+                                )
+                                : movies.map(movie => (
+                                    <Col md={3}>
+                                        <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                                    </Col>
+                                ))
+                            }
+                        </Row>
+                    </Container>
                 </div>
             );
         }
