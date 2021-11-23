@@ -7,6 +7,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { Footer } from '../footer/footer';
 
 
 export class MainView extends React.Component {
@@ -78,7 +79,7 @@ export class MainView extends React.Component {
             return (
                 <div className="main-view">
                     <Container>
-                        <Navbar bg="navColor" variant="dark" expand="lg" className="mainNavbar">
+                        <Navbar variant="dark" expand="lg" className="mainNavbar">
                             <Container>
                                 <Navbar.Brand href="#home">myFlix</Navbar.Brand>
                                 <Nav className="me-auto">
@@ -90,7 +91,7 @@ export class MainView extends React.Component {
                         </Navbar>
 
 
-                        <Row className="main-view justify-content-md-center">
+                        <Row className="justify-content-lg-center">
                             {selectedMovie
                                 ? (
                                     <Col md={8}>
@@ -104,8 +105,11 @@ export class MainView extends React.Component {
                                 ))
                             }
                         </Row>
+                        <Footer />
                     </Container>
+
                 </div>
+
             );
         }
     }
