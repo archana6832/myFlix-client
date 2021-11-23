@@ -37860,7 +37860,7 @@ const Footer = ()=>/*#__PURE__*/ _jsxRuntime.jsx("div", {
                 lineNumber: 5
             },
             __self: undefined,
-            children: "This is some content in sticky footer"
+            children: " Copyright 2021- MyFlix . All rights reserved"
         })
     })
 ;
