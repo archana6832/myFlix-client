@@ -90,7 +90,7 @@ export class MainView extends React.Component {
                         </Navbar>
 
 
-                        <Row className="justify-content-lg-center">
+                        <Row className="main-view justify-content-md-center">
                             {selectedMovie
                                 ? (
                                     <Col md={8}>
