@@ -4,6 +4,8 @@ import './registration-view.scss';
 import { Form, Button, Card, CardGroup, Col, Row } from 'react-bootstrap';
 import axios from 'axios';
 
+
+
 export function RegistrationView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -13,12 +15,21 @@ export function RegistrationView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password, email, birthday);
-
-        props.onRegistration(username);
-
+        axios.post('https://myflix-moviesapp.herokuapp.com/users', {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        })
+            .then(response => {
+                const data = response.data;
+                console.log(data);
+                window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab
+            })
+            .catch(e => {
+                console.log('error registering the user')
+            });
     };
-
     return (
         <Row>
             <Col>
@@ -83,11 +94,12 @@ export function RegistrationView(props) {
 
     );
 }
-
-
 RegistrationView.propTypes = {
-    onRegistration: PropTypes.func.isRequired
+    register: PropTypes.shape({
+        username: PropTypes.string.isRequired,
+        password: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        birthday: PropTypes.string.isRequired
+    }),
+    onRegistration: PropTypes.func.isRequired,
 };
-
-
-
