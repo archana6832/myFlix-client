@@ -61,6 +61,9 @@ export function LoginView(props) {
                                         Submit
                                     </Button>
                                     <p>New User? Register here</p>
+                                    <Link to="/register">
+                                        <Button variant="primary" type="button">Register</Button>
+                                    </Link>
                                 </Form>
                             </Card.Body>
                         </Card>
