@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './registration-view.scss';
 import { Form, Button, Card, CardGroup, Col, Row } from 'react-bootstrap';
+import axios from 'axios';
 
 export function RegistrationView(props) {
     const [username, setUsername] = useState('');
