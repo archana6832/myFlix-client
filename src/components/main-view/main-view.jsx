@@ -65,7 +65,7 @@ export class MainView extends React.Component {
         });
     }
 
-    /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
+    /* When a user successfully logs in, this function updates the `user` property in state to that *particular user */
 
     onLoggedIn(authData) {
         console.log(authData);
@@ -77,6 +77,7 @@ export class MainView extends React.Component {
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
+    // User Logout to erase the token and username from local storage
     onLoggedOut() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
@@ -109,7 +110,7 @@ export class MainView extends React.Component {
                                 <Nav className="me-auto">
                                     <Nav.Link href="#home">Movies</Nav.Link>
                                     <Nav.Link href="#user">Profile</Nav.Link>
-                                    <button onClick={() => { this.onLoggedOut() }}>Logout</button>
+                                    <Nav.Link onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
                                 </Nav>
                             </Container>
                         </Navbar>
