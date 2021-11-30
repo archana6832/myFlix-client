@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
+import axios from 'axios';
 import './movie-card.scss';
+import { Link } from "react-router-dom";
 
 export class MovieCard extends React.Component {
     render() {
@@ -30,3 +32,4 @@ MovieCard.propTypes = {
     }).isRequired,
     onMovieClick: PropTypes.func.isRequired
 };
+
