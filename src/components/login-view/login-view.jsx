@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './login-view.scss'; //import .scss 
 import { Container, Form, Button, Card, CardGroup, Col, Row } from 'react-bootstrap';
+import axios from 'axios';
+import { Link } from "react-router-dom";
 
 export function LoginView(props) {
     const [username, setUsername] = useState('');
@@ -9,12 +11,19 @@ export function LoginView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password);
         /* Send a request to the server for authentication */
-        /* then call props.onLoggedIn(username) */
-        props.onLoggedIn(username);
+        axios.post('https://myflix-moviesapp.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        })
+            .then(response => {
+                const data = response.data;
+                props.onLoggedIn(data);
+            })
+            .catch(e => {
+                console.log('no such user')
+            });
     };
-
     return (
         <Container>
             <Row>
@@ -51,6 +60,7 @@ export function LoginView(props) {
                                         onClick={handleSubmit}>
                                         Submit
                                     </Button>
+                                    <p>New User? Register here</p>
                                 </Form>
                             </Card.Body>
                         </Card>
