@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import './registration-view.scss';
 import { Form, Button, Card, CardGroup, Col, Row } from 'react-bootstrap';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 
-export function RegistrationView(props) {
+export function RegistrationView() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -85,6 +86,7 @@ export function RegistrationView(props) {
                                     onClick={handleSubmit}>
                                     Register
                                 </Button>
+                                <p>Have an account? Login here</p>
                             </Form>
                         </Card.Body>
                     </Card>
@@ -94,12 +96,4 @@ export function RegistrationView(props) {
 
     );
 }
-RegistrationView.propTypes = {
-    register: PropTypes.shape({
-        username: PropTypes.string.isRequired,
-        password: PropTypes.string.isRequired,
-        email: PropTypes.string.isRequired,
-        birthday: PropTypes.string.isRequired
-    }),
-    onRegistration: PropTypes.func.isRequired,
-};
+export default RegistrationView;
