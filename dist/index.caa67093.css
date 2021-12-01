@@ -13,4 +13,28 @@
 
 
 
+.director-view {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.director-button {
+  margin-top: 1rem;
+}
+
+.director-name {
+  text-align: center;
+}
+.genre-view {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.genre-button {
+  margin-top: 1rem;
+}
+
+.genre-name {
+  text-align: center;
+}
 /*# sourceMappingURL=index.caa67093.css.map */
