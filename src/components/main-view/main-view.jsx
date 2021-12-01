@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Routes, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap'; // React Bootstrap
 import './main-view.scss'; //import .scss
 
@@ -73,43 +73,55 @@ export class MainView extends React.Component {
     render() {
         const { movies, user } = this.state;
         return (
-            <Router>
+            <Container>
+                <Router>
+                    <Navbar variant="dark" expand="lg" className="mainNavbar">
 
-                <Row className="main-view justify-content-md-center">
+                        <Navbar.Brand href="#home">myFlix</Navbar.Brand>
+                        <Nav className="me-auto">
+                            <Nav.Link href="#home">Movies</Nav.Link>
+                            <Nav.Link href="#user">Profile</Nav.Link>
+                            <Nav.Link onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
+                        </Nav>
 
-                    <Route exact path="/" render={() => {
-                        if (!user) return <Col>
-                            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-                        </Col>
-                        if (movies.length === 0) return <div className="main-view" />;
-                        return movies.map(m => (
-                            <Col md={3} key={m._id}>
-                                <MovieCard movie={m} />
+                    </Navbar>
+
+                    <Row className="main-view justify-content-md-center">
+
+                        <Route exact path="/" render={() => {
+                            if (!user) return <Col>
+                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                             </Col>
-                        ))
-                    }} />
+                            if (movies.length === 0) return <div className="main-view" />;
+                            return movies.map(m => (
+                                <Col md={3} key={m._id}>
+                                    <MovieCard movie={m} />
+                                </Col>
+                            ))
+                        }} />
 
-                    <Route path="/register" render={() => {
-                        if (user) return <Redirect to="/" />
-                        return <Col>
-                            <RegistrationView />
-                        </Col>
+                        <Route path="/register" render={() => {
+                            if (user) return <Redirect to="/" />
+                            return <Col>
+                                <RegistrationView />
+                            </Col>
 
-                    }} />
+                        }} />
 
-                    <Route path="/movies/:movieId" render={({ match, history }) => {
-                        if (!user) return <Col>
-                            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-                        </Col>
-                        if (movies.length === 0) return <div className="main-view" />;
-                        return <Col md={8}>
-                            <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
-                        </Col>
+                        <Route path="/movies/:movieId" render={({ match, history }) => {
+                            if (!user) return <Col>
+                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                            </Col>
+                            if (movies.length === 0) return <div className="main-view" />;
+                            return <Col md={8}>
+                                <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
+                            </Col>
 
-                    }} />
+                        }} />
 
-                </Row>
-            </Router>
+                    </Row>
+                </Router>
+            </Container>
         );
     }
 }
