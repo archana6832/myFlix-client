@@ -87,6 +87,10 @@ export function RegistrationView() {
                                     Register
                                 </Button>
                                 <p>Have an account? Login here</p>
+                                <Link to="/">
+                                    <Button variant="primary" type="button">Login
+                                    </Button>
+                                </Link>
                             </Form>
                         </Card.Body>
                     </Card>
