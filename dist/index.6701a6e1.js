@@ -40271,33 +40271,22 @@ class DirectorView extends _reactDefault.default.Component {
                         lineNumber: 14
                     },
                     __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    children: /*#__PURE__*/ _jsxRuntime.jsx("div", {
                         className: "director-name",
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
                             lineNumber: 15
                         },
                         __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                className: "label",
-                                __source: {
-                                    fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 16
-                                },
-                                __self: this,
-                                children: "Name: "
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                className: "value",
-                                __source: {
-                                    fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 17
-                                },
-                                __self: this,
-                                children: this.props.director.Name
-                            })
-                        ]
+                        children: /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "value",
+                            __source: {
+                                fileName: "src/components/director-view/director-view.jsx",
+                                lineNumber: 17
+                            },
+                            __self: this,
+                            children: this.props.director.Name
+                        })
                     })
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
