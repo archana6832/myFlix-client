@@ -39834,13 +39834,14 @@ var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
 var _movieCardScss = require("./movie-card.scss");
+var _reactRouterDom = require("react-router-dom");
 class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 11
+                lineNumber: 12
             },
             __self: this,
             children: [
@@ -39850,21 +39851,21 @@ class MovieCard extends _reactDefault.default.Component {
                     crossOrigin: "anonymous",
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 12
+                        lineNumber: 13
                     },
                     __self: this
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 13
+                        lineNumber: 14
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 14
+                                lineNumber: 15
                             },
                             __self: this,
                             children: movie.Title
@@ -39872,23 +39873,23 @@ class MovieCard extends _reactDefault.default.Component {
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Text, {
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 15
+                                lineNumber: 16
                             },
                             __self: this,
                             children: movie.Description
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsx(Link, {
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
                             to: `/movies/${movie._id}`,
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 16
+                                lineNumber: 17
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                 variant: "link",
                                 __source: {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 17
+                                    lineNumber: 18
                                 },
                                 __self: this,
                                 children: "Open"
@@ -39906,7 +39907,7 @@ class MovieCard extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","./movie-card.scss":"cF5gT","@parcel/transformer-js/src/esmodule-helpers.js":"hesCq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"bAg6q"}],"cF5gT":[function() {},{}],"ikZdr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","./movie-card.scss":"cF5gT","@parcel/transformer-js/src/esmodule-helpers.js":"hesCq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"bAg6q","react-router-dom":"cpyQW"}],"cF5gT":[function() {},{}],"ikZdr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
