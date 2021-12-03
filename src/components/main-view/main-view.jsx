@@ -26,15 +26,14 @@ export class MainView extends React.Component {
     }
     getUser(token) {
 
-        axios
-            .get(`https://myflix-moviesapp.herokuapp.com/users/`,
-                {
-                    headers: { Authorization: `Bearer ${token}` },
-                }
-            )
+        axios.get(`https://myflix-moviesapp.herokuapp.com/users/`,
+            {
+                headers: { Authorization: `Bearer ${token}` },
+            }
+        )
             .then(response => {
                 this.setState({
-                    userObject: response.data
+                    users: response.data
                 });
             })
             .catch(function (error) {
