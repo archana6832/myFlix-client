@@ -2,7 +2,6 @@
   color: steelblue;
 }
 .main-view {
-  background: #95A5A6;
   width: 100%;
 }
 
@@ -24,6 +23,7 @@
 
 .director-name {
   text-align: center;
+  font-weight: bold;
 }
 .genre-view {
   margin-top: 5rem;
@@ -36,6 +36,7 @@
 
 .genre-name {
   text-align: center;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=index.caa67093.css.map */
