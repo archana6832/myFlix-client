@@ -23320,7 +23320,6 @@ class MainView extends _reactDefault.default.Component {
                                     }));
                                     return(/*#__PURE__*/ _jsxRuntime.jsx(_profileView.ProfileView, {
                                         user: user,
-                                        movies: movies,
                                         onBackClick: ()=>history.goBack()
                                     }));
                                 },
