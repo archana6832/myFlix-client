@@ -24,6 +24,24 @@ export class MainView extends React.Component {
             user: null
         };
     }
+    getUser(token) {
+
+        axios
+            .get(`https://myflix-moviesapp.herokuapp.com/users/`,
+                {
+                    headers: { Authorization: `Bearer ${token}` },
+                }
+            )
+            .then(response => {
+                this.setState({
+                    userObject: response.data
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
 
     getMovies(token) {
         axios.get('https://myflix-moviesapp.herokuapp.com/movies', {
@@ -47,6 +65,7 @@ export class MainView extends React.Component {
                 user: localStorage.getItem('user')
             });
             this.getMovies(accessToken);
+            this.getUser(accessToken);
         }
     }
 
@@ -81,10 +100,15 @@ export class MainView extends React.Component {
 
                         <Navbar.Brand href="/">myFlix</Navbar.Brand>
                         <Nav className="me-auto">
-                            <Nav.Link href="/">Movies</Nav.Link>
+                            <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/profile">Profile</Nav.Link>
                             <Nav.Link href="#users">{this.state.user}</Nav.Link>
-                            <Nav.Link onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
+
+                            <Nav.Link onClick={() => { this.onLoggedOut() }}>
+                                {
+                                    user ? "Logout" : "LogIn"}
+                            </Nav.Link>
+
                         </Nav>
                     </Navbar>
 
@@ -136,7 +160,10 @@ export class MainView extends React.Component {
                                 <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
                             </Col>
                         }} />
-
+                        <Route path="/profile" render={({ history }) => {
+                            if (movies.length === 0) return <div className="main-view"></div>;
+                            return <ProfileView user={user} movies={movies} onBackClick={() => history.goBack()} />
+                        }} />
 
                     </Row>
                 </Router>
