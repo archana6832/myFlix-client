@@ -31,14 +31,18 @@ export class ProfileView extends React.Component {
     getUser(token) {
         const username = localStorage.getItem("user");
         axios
-            .get(`https://myflix-moviesapp.herokuapp.com/users/`,
+            .get(`https://myflix-moviesapp.herokuapp.com/users/${username}`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }
             )
             .then((response) => {
                 this.setState({
-                    userObject: response.data
+                    Username: response.data.Username,
+                    Password: response.data.Password,
+                    Email: response.data.Email,
+                    Birthday: response.data.Birthday,
+                    FavoriteMovies: response.data.FavoriteMovies,
 
                 });
             })
