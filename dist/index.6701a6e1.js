@@ -40593,13 +40593,17 @@ class ProfileView extends _reactDefault.default.Component {
     }
     getUser(token) {
         const username = localStorage.getItem("user");
-        _axiosDefault.default.get(`https://myflix-moviesapp.herokuapp.com/users/`, {
+        _axiosDefault.default.get(`https://myflix-moviesapp.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
             this.setState({
-                userObject: response.data
+                Username: response.data.Username,
+                Password: response.data.Password,
+                Email: response.data.Email,
+                Birthday: response.data.Birthday,
+                FavoriteMovies: response.data.FavoriteMovies
             });
         }).catch(function(error) {
             console.log(error);
@@ -40611,28 +40615,28 @@ class ProfileView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 57
+                lineNumber: 61
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
                 className: "profile-view",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 58
+                    lineNumber: 62
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Header, {
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 59
+                            lineNumber: 63
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                             className: "userdetails",
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 60
+                                lineNumber: 64
                             },
                             __self: this,
                             children: [
@@ -40640,7 +40644,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     className: "label",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 61
+                                        lineNumber: 65
                                     },
                                     __self: this,
                                     children: "User Details: "
@@ -40649,7 +40653,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     className: "value",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 62
+                                        lineNumber: 66
                                     },
                                     __self: this,
                                     children: this.state.user
@@ -40660,40 +40664,12 @@ class ProfileView extends _reactDefault.default.Component {
                     /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 65
+                            lineNumber: 69
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                                 className: "username",
-                                __source: {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 66
-                                },
-                                __self: this,
-                                children: [
-                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                        className: "label",
-                                        __source: {
-                                            fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 67
-                                        },
-                                        __self: this,
-                                        children: "Username: "
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                        className: "value",
-                                        __source: {
-                                            fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 68
-                                        },
-                                        __self: this,
-                                        children: user.Username
-                                    })
-                                ]
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                className: "Password",
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
                                     lineNumber: 70
@@ -40707,7 +40683,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             lineNumber: 71
                                         },
                                         __self: this,
-                                        children: "Password: "
+                                        children: "Username: "
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                         className: "value",
@@ -40716,12 +40692,12 @@ class ProfileView extends _reactDefault.default.Component {
                                             lineNumber: 72
                                         },
                                         __self: this,
-                                        children: "******"
+                                        children: user.Username
                                     })
                                 ]
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                className: "Email",
+                                className: "Password",
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
                                     lineNumber: 74
@@ -40735,7 +40711,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             lineNumber: 75
                                         },
                                         __self: this,
-                                        children: "Email: "
+                                        children: "Password: "
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                         className: "value",
@@ -40744,12 +40720,12 @@ class ProfileView extends _reactDefault.default.Component {
                                             lineNumber: 76
                                         },
                                         __self: this,
-                                        children: user.Email
+                                        children: "******"
                                     })
                                 ]
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                className: "Birthday",
+                                className: "Email",
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
                                     lineNumber: 78
@@ -40763,13 +40739,41 @@ class ProfileView extends _reactDefault.default.Component {
                                             lineNumber: 79
                                         },
                                         __self: this,
-                                        children: "Birthday: "
+                                        children: "Email: "
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                         className: "value",
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
                                             lineNumber: 80
+                                        },
+                                        __self: this,
+                                        children: user.Email
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                                className: "Birthday",
+                                __source: {
+                                    fileName: "src/components/profile-view/profile-view.jsx",
+                                    lineNumber: 82
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "label",
+                                        __source: {
+                                            fileName: "src/components/profile-view/profile-view.jsx",
+                                            lineNumber: 83
+                                        },
+                                        __self: this,
+                                        children: "Birthday: "
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        className: "value",
+                                        __source: {
+                                            fileName: "src/components/profile-view/profile-view.jsx",
+                                            lineNumber: 84
                                         },
                                         __self: this,
                                         children: user.Birthday
@@ -40784,7 +40788,7 @@ class ProfileView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 83
+                                    lineNumber: 87
                                 },
                                 __self: this,
                                 children: "Back"
