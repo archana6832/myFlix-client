@@ -63,13 +63,13 @@ export class ProfileView extends React.Component {
                     <Card.Header>
                         <div className="userdetails">
                             <span className="label">User Details: </span>
-                            <span className="value">{this.state.user}</span>
+                            {/* <span className="value">{this.state.Username}</span> */}
                         </div>
                     </Card.Header>
                     <Card.Body>
                         <div className="username">
                             <span className="label">Username: </span>
-                            <span className="value">{user.Username}</span>
+                            <span className="value">{this.state.Username}</span>
                         </div>
                         <div className="Password">
                             <span className="label">Password: </span>
@@ -77,11 +77,11 @@ export class ProfileView extends React.Component {
                         </div>
                         <div className="Email">
                             <span className="label">Email: </span>
-                            <span className="value">{user.Email}</span>
+                            <span className="value">{this.state.Email}</span>
                         </div>
                         <div className="Birthday">
                             <span className="label">Birthday: </span>
-                            <span className="value">{user.Birthday}</span>
+                            <span className="value">{this.state.Birthday}</span>
                         </div>
 
                         <Button className="buttons" variant="danger" onClick={() => { onBackClick(null); }}>Back</Button>
