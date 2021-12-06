@@ -40632,33 +40632,22 @@ class ProfileView extends _reactDefault.default.Component {
                             lineNumber: 63
                         },
                         __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                        children: /*#__PURE__*/ _jsxRuntime.jsx("div", {
                             className: "userdetails",
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
                                 lineNumber: 64
                             },
                             __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                    className: "label",
-                                    __source: {
-                                        fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 65
-                                    },
-                                    __self: this,
-                                    children: "User Details: "
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                    className: "value",
-                                    __source: {
-                                        fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 66
-                                    },
-                                    __self: this,
-                                    children: this.state.user
-                                })
-                            ]
+                            children: /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                className: "label",
+                                __source: {
+                                    fileName: "src/components/profile-view/profile-view.jsx",
+                                    lineNumber: 65
+                                },
+                                __self: this,
+                                children: "User Details: "
+                            })
                         })
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
@@ -40692,7 +40681,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             lineNumber: 72
                                         },
                                         __self: this,
-                                        children: user.Username
+                                        children: this.state.Username
                                     })
                                 ]
                             }),
@@ -40748,7 +40737,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             lineNumber: 80
                                         },
                                         __self: this,
-                                        children: user.Email
+                                        children: this.state.Email
                                     })
                                 ]
                             }),
@@ -40776,7 +40765,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             lineNumber: 84
                                         },
                                         __self: this,
-                                        children: user.Birthday
+                                        children: this.state.Birthday
                                     })
                                 ]
                             }),
