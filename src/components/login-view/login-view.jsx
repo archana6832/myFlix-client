@@ -58,7 +58,7 @@ export function LoginView(props) {
 
                                     <Button variant="primary" type="submit"
                                         onClick={handleSubmit}>
-                                        Submit
+                                        LogIn
                                     </Button>
                                     <p>New User? Register here</p>
                                     <Link to="/register">
