@@ -83,12 +83,9 @@ export class MainView extends React.Component {
     }
     // User Logout to erase the token and username from local storage
     onLoggedOut() {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        this.setState({
-            user: null
-        });
-    }
+        localStorage.clear();
+        window.open("/", "_self");
+    };
 
     render() {
         const { movies, user } = this.state;
