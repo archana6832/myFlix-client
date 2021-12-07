@@ -25,16 +25,15 @@ export class MainView extends React.Component {
         };
     }
     getUser(token) {
+        const username = localStorage.getItem("user");
 
-        axios.get(`https://myflix-moviesapp.herokuapp.com/users/`,
+        axios.get(`https://myflix-moviesapp.herokuapp.com/users/${username}`,
             {
                 headers: { Authorization: `Bearer ${token}` },
             }
         )
-            .then(response => {
-                this.setState({
-                    users: response.data
-                });
+            .then((response) => {
+                this.setState({ userObject: response.data })
             })
             .catch(function (error) {
                 console.log(error);
@@ -78,6 +77,7 @@ export class MainView extends React.Component {
         });
 
         localStorage.setItem('token', authData.token);
+        // localStorage.setItem('user', authData.userObject);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
