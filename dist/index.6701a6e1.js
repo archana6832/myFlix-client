@@ -23045,13 +23045,14 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     getUser(token) {
-        _axiosDefault.default.get(`https://myflix-moviesapp.herokuapp.com/users/`, {
+        const username = localStorage.getItem("user");
+        _axiosDefault.default.get(`https://myflix-moviesapp.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
             this.setState({
-                users: response.data
+                userObject: response.data
             });
         }).catch(function(error) {
             console.log(error);
@@ -23088,6 +23089,7 @@ class MainView extends _reactDefault.default.Component {
             user: authData.user.Username
         });
         localStorage.setItem('token', authData.token);
+        // localStorage.setItem('user', authData.userObject);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
@@ -40632,22 +40634,33 @@ class ProfileView extends _reactDefault.default.Component {
                             lineNumber: 63
                         },
                         __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                        children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                             className: "userdetails",
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
                                 lineNumber: 64
                             },
                             __self: this,
-                            children: /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                className: "label",
-                                __source: {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 65
-                                },
-                                __self: this,
-                                children: "User Details: "
-                            })
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "label",
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 65
+                                    },
+                                    __self: this,
+                                    children: "User Details: "
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                    className: "value",
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 66
+                                    },
+                                    __self: this,
+                                    children: this.state.Username
+                                })
+                            ]
                         })
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
