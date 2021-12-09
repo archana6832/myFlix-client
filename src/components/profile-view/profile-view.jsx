@@ -50,7 +50,19 @@ export class ProfileView extends React.Component {
                 console.log(error);
             });
     }
-
+    removeFavorite(movie) {
+        let token = localStorage.getItem('token');
+        let url = 'https://myflix-moviesapp.herokuapp.com/users/' + localStorage.getItem('user')
+            + '/movies/' + movie._id;
+        axios
+            .delete(url, {
+                headers: { Authorization: `Bearer ${token}` },
+            })
+            .then((response) => {
+                alert("Movie was removed");
+                this.componentDidMount();
+            });
+    }
 
 
     render() {
@@ -85,8 +97,34 @@ export class ProfileView extends React.Component {
                         </div>
 
                         <Button className="buttons" variant="danger" onClick={() => { onBackClick(null); }}>Back</Button>
-
+                        <span>
+                            <Button className="buttons" href="/update" variant="primary">Update </Button>
+                        </span>
                     </Card.Body>
+                </Card>
+                <Card className="cardFav">
+
+                    <Card.Header className="header">Favorite Movies:</Card.Header>
+
+                    <Row>
+                        {this.state.FavoriteMovies.map((movie) => {
+                            return (
+                                <Col xs={8} md={6} lg={4} xl={4}>
+
+                                    <Card>
+                                        <Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous" />
+                                        <Card.Body>
+                                            <Card.Title>{movie.Title}</Card.Title>
+
+                                            <Button className="buttons" variant="dark" onClick={() => this.removeFavorite(movie)}>Click to Remove</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            )
+                        }
+                        )}
+                    </Row>
+
                 </Card>
             </Container>
 
