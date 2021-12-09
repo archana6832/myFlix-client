@@ -16,6 +16,9 @@ export function RegistrationView() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+
+        //new user registration
         axios.post('https://myflix-moviesapp.herokuapp.com/users', {
             Username: username,
             Password: password,
