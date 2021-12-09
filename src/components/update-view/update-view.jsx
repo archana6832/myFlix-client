@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import './update-view.scss';
 
 export function UpdateView(user) {
@@ -56,11 +57,13 @@ export function UpdateView(user) {
             })
     }
 
+
     return (
         <Form className='registrationForm'>
             <Form.Group controlId="formUsername">
                 <Form.Label>Username: </Form.Label>
-                <Form.Control type="text" required onChange={e => setUsername(e.target.value)} />
+                <Form.Control type="text" required
+                    onChange={e => setUsername(e.target.value)} />
             </Form.Group>
 
             <Form.Group controlId="pasword">
@@ -77,7 +80,10 @@ export function UpdateView(user) {
                 <Form.Label>Birthday:</Form.Label>
                 <Form.Control type="birthday" required onChange={e => setBirthday(e.target.value)} />
             </Form.Group>
-            <Button className="buttons" variant="danger" onClick={() => { onBackClick(null); }}>Back</Button>
+            <Link to={`/profile`}>
+                <Button variant="secondary" type="button">Back</Button>
+            </Link>
+
             <Button variant="primary" type="submit" onClick={handleUpdate}>Update</Button>
             <Button variant="danger" type="button" onClick={handleDeregister}>deregister</Button>
         </Form>
