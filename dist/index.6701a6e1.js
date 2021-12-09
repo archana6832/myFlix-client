@@ -41094,28 +41094,42 @@ function UpdateView(user) {
     const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
     const [birthday, setBirthday] = _react.useState('');
+    //form validation
+    const [usernameError, setUsernameError] = _react.useState({
+    });
+    const [passwordError, setPasswordError] = _react.useState({
+    });
+    const [emailError, setEmailError] = _react.useState({
+    });
+    const [birthdateError, setBirthdateError] = _react.useState({
+    });
     // get from local storage
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     const handleUpdate = (e)=>{
         e.preventDefault();
-        console.log(user);
-        _axiosDefault.default.put(`https://myflix-moviesapp.herokuapp.com/users/${username}`, {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
-        }, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
-            const data = response.data;
-            console.log(data);
-            alert('user has been updated');
-        }).catch((e1)=>{
-            console.log('error updating the user');
-        });
+        let setisValid = formValidation();
+        if (setisValid) {
+            //Update user
+            console.log(user);
+            _axiosDefault.default.put(`https://myflix-moviesapp.herokuapp.com/users/${username}`, {
+                Username: username,
+                Password: password,
+                Email: email,
+                Birthday: birthday
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }).then((response)=>{
+                const data = response.data;
+                console.log(data);
+                alert('user has been updated');
+            }).catch((e1)=>{
+                alert('Error');
+                console.log('error updating the user');
+            });
+        }
     };
     const handleDeregister = ()=>{
         const token1 = localStorage.getItem('token');
@@ -41133,11 +41147,48 @@ function UpdateView(user) {
             console.log(err, 'Deregistration did not succeed');
         });
     };
+    //Form Validation
+    const formValidation = ()=>{
+        let usernameError1 = {
+        };
+        let passwordError1 = {
+        };
+        let emailError1 = {
+        };
+        let birthdateError1 = {
+        };
+        let isValid = true;
+        if (username === '') {
+            usernameError1.usernameEmpty = alert("Please enter a valid username.");
+            isValid = false;
+        }
+        if (username.trim().length < 5) {
+            usernameError1.usernameShort = alert("Username needs to be at least 5 characters long.");
+            isValid = false;
+        }
+        if (password.trim().length < 8) {
+            passwordError1.passwordShort = alert("Password needs to be at least 8 characters long.");
+            isValid = false;
+        }
+        if (!(email && email.includes(".") && email.includes("@"))) {
+            emailError1.emailNotEmail = alert("Please enter correct email address.");
+            isValid = false;
+        }
+        if (birthday === '') {
+            birthdateError1.birthdateEmpty = alert("Please enter your birthday.");
+            isValid = false;
+        }
+        setUsernameError(usernameError1);
+        setPasswordError(passwordError1);
+        setEmailError(emailError1);
+        setBirthdateError(birthdateError1);
+        return isValid;
+    };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
-        className: "registrationForm",
+        className: "updateForm",
         __source: {
             fileName: "src/components/update-view/update-view.jsx",
-            lineNumber: 62
+            lineNumber: 111
         },
         __self: this,
         children: [
@@ -41145,14 +41196,14 @@ function UpdateView(user) {
                 controlId: "formUsername",
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 63
+                    lineNumber: 112
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 64
+                            lineNumber: 113
                         },
                         __self: this,
                         children: "Username: "
@@ -41164,9 +41215,19 @@ function UpdateView(user) {
                         ,
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 65
+                            lineNumber: 114
                         },
                         __self: this
+                    }),
+                    Object.keys(usernameError).map((key)=>{
+                        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                            __source: {
+                                fileName: "src/components/update-view/update-view.jsx",
+                                lineNumber: 118
+                            },
+                            __self: this,
+                            children: usernameError[key]
+                        }, key));
                     })
                 ]
             }),
@@ -41174,14 +41235,14 @@ function UpdateView(user) {
                 controlId: "pasword",
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 69
+                    lineNumber: 125
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 70
+                            lineNumber: 126
                         },
                         __self: this,
                         children: "Password:"
@@ -41193,9 +41254,19 @@ function UpdateView(user) {
                         ,
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 71
+                            lineNumber: 127
                         },
                         __self: this
+                    }),
+                    Object.keys(passwordError).map((key)=>{
+                        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                            __source: {
+                                fileName: "src/components/update-view/update-view.jsx",
+                                lineNumber: 130
+                            },
+                            __self: this,
+                            children: passwordError[key]
+                        }, key));
                     })
                 ]
             }),
@@ -41203,14 +41274,14 @@ function UpdateView(user) {
                 controlId: "email",
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 74
+                    lineNumber: 137
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 75
+                            lineNumber: 138
                         },
                         __self: this,
                         children: "Email: "
@@ -41222,9 +41293,19 @@ function UpdateView(user) {
                         ,
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 76
+                            lineNumber: 139
                         },
                         __self: this
+                    }),
+                    Object.keys(emailError).map((key)=>{
+                        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                            __source: {
+                                fileName: "src/components/update-view/update-view.jsx",
+                                lineNumber: 142
+                            },
+                            __self: this,
+                            children: emailError[key]
+                        }, key));
                     })
                 ]
             }),
@@ -41232,14 +41313,14 @@ function UpdateView(user) {
                 controlId: "birthday",
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 79
+                    lineNumber: 149
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 80
+                            lineNumber: 150
                         },
                         __self: this,
                         children: "Birthday:"
@@ -41251,9 +41332,19 @@ function UpdateView(user) {
                         ,
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 81
+                            lineNumber: 151
                         },
                         __self: this
+                    }),
+                    Object.keys(birthdateError).map((key)=>{
+                        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                            __source: {
+                                fileName: "src/components/update-view/update-view.jsx",
+                                lineNumber: 154
+                            },
+                            __self: this,
+                            children: birthdateError[key]
+                        }, key));
                     })
                 ]
             }),
@@ -41261,7 +41352,7 @@ function UpdateView(user) {
                 to: `/profile`,
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 83
+                    lineNumber: 160
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -41269,7 +41360,7 @@ function UpdateView(user) {
                     type: "button",
                     __source: {
                         fileName: "src/components/update-view/update-view.jsx",
-                        lineNumber: 84
+                        lineNumber: 161
                     },
                     __self: this,
                     children: "Back"
@@ -41281,7 +41372,7 @@ function UpdateView(user) {
                 onClick: handleUpdate,
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 87
+                    lineNumber: 164
                 },
                 __self: this,
                 children: "Update"
@@ -41292,7 +41383,7 @@ function UpdateView(user) {
                 onClick: handleDeregister,
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 88
+                    lineNumber: 165
                 },
                 __self: this,
                 children: "deregister"
@@ -41300,7 +41391,7 @@ function UpdateView(user) {
         ]
     }));
 }
-_s(UpdateView, "XRg+uQ3gYCvV7t6UsKEzWmQe/2Q=");
+_s(UpdateView, "IXOX5zsvDgyHTlP7nATqAhnpmWc=");
 _c = UpdateView;
 UpdateView.propTypes = {
     update: _propTypesDefault.default.shape({
