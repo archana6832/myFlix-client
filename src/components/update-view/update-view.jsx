@@ -7,7 +7,7 @@ import './update-view.scss';
 
 export function UpdateView(user) {
 
-    const [Name, setUsername] = useState('');
+    const [name, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [birthday, setBirthday] = useState('');
@@ -89,3 +89,12 @@ export function UpdateView(user) {
         </Form>
     );
 }
+
+UpdateView.propTypes = {
+    update: PropTypes.shape({
+        username: PropTypes.string.isRequired,
+        password: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        birthday: PropTypes.string.isRequired,
+    }),
+};
