@@ -12,6 +12,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
+import { UpdateView } from '../update-view/update-view';
 
 
 export class MainView extends React.Component {
@@ -72,15 +73,12 @@ export class MainView extends React.Component {
 
     onLoggedIn(authData) {
         console.log(authData);
-        this.setState({
-            user: authData.user.Username
-        });
-
+        this.setState({ user: authData.user.Username });
         localStorage.setItem('token', authData.token);
-        //localStorage.setItem('user', authData.userObject);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
+
     // User Logout to erase the token and username from local storage
     onLoggedOut() {
         localStorage.clear();
@@ -160,7 +158,9 @@ export class MainView extends React.Component {
                             if (movies.length === 0) return <div className="main-view"></div>;
                             return <ProfileView user={user} onBackClick={() => history.goBack()} />
                         }} />
-
+                        <Route path="/update" render={({ history }) => {
+                            return <UpdateView user={this.state.userObject} onBackClick={() => history.goBack()} />
+                        }} />
                     </Row>
                 </Router>
             </Container>
