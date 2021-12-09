@@ -23089,7 +23089,7 @@ class MainView extends _reactDefault.default.Component {
             user: authData.user.Username
         });
         localStorage.setItem('token', authData.token);
-        // localStorage.setItem('user', authData.userObject);
+        //localStorage.setItem('user', authData.userObject);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
@@ -40900,7 +40900,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                         ,
                                                         __source: {
                                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                                            lineNumber: 119
+                                                            lineNumber: 118
                                                         },
                                                         __self: this,
                                                         children: "Click to Remove"
