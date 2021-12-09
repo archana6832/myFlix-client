@@ -21,6 +21,7 @@ export function LoginView(props) {
                 props.onLoggedIn(data);
             })
             .catch(e => {
+                alert('invalid username or password')
                 console.log('no such user')
             });
     };
