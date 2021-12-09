@@ -95,12 +95,9 @@ export class MainView extends React.Component {
                         <Navbar.Brand href="/">myFlix</Navbar.Brand>
                         <Nav className="me-auto">
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/profile">Profile</Nav.Link>
-                            <Nav.Link href="#users">{this.state.user}</Nav.Link>
-
+                            <Nav.Link href="/profile">{this.state.user}</Nav.Link>
                             <Nav.Link onClick={() => { this.onLoggedOut() }}>
-                                {
-                                    user ? "Logout" : "LogIn"}
+                                {user ? "Logout" : "LogIn"}
                             </Nav.Link>
 
                         </Nav>
@@ -156,7 +153,7 @@ export class MainView extends React.Component {
                         }} />
                         <Route path="/profile" render={({ history }) => {
                             if (movies.length === 0) return <div className="main-view"></div>;
-                            return <ProfileView user={user} onBackClick={() => history.goBack()} />
+                            return <ProfileView user={user} movies={movies} onBackClick={() => history.goBack()} />
                         }} />
                         <Route path="/update" render={({ history }) => {
                             return <UpdateView user={this.state.userObject} onBackClick={() => history.goBack()} />
