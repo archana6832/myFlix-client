@@ -5,6 +5,7 @@ import { setState } from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from "react-router-dom";
 import './profile-view.scss';
+import { MovieCard } from "../movie-card/movie-card";
 
 export class ProfileView extends React.Component {
     constructor() {
@@ -66,7 +67,7 @@ export class ProfileView extends React.Component {
 
 
     render() {
-        const { user, onBackClick } = this.props;
+        const { user, movies, onBackClick } = this.props;
         console.log(user);
 
         return (
@@ -104,29 +105,25 @@ export class ProfileView extends React.Component {
                 </Card>
                 <Card className="cardFav">
 
-                    <Card.Header className="header">Favorite Movies:</Card.Header>
 
-                    <Row>
-                        {this.state.FavoriteMovies.map((movie) => {
-                            return (
-                                <Col xs={8} md={6} lg={4} xl={4}>
+                    <Card.Title >Favourite Movies</Card.Title>
+                    <Row className="favorite-movies">
+                        {movies.map((movie) => {
+                            if (this.state.FavoriteMovies.includes(movie._id)) {
+                                return (
+                                    <Col xs={8} md={6} lg={4} xl={4}>
+                                        < MovieCard key={movie._id} movie={movie} />
+                                        <Button className="buttons" variant="dark"
+                                            onClick={() => this.removeFavorite(movie)}>Click to Remove</Button>
+                                    </Col>
+                                )
 
-                                    <Card>
-                                        <Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous" />
-                                        <Card.Body>
-                                            <Card.Title>{movie.Title}</Card.Title>
-                                            <Button className="buttons" variant="dark" onClick={() => this.removeFavorite(movie)}>Click to Remove</Button>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            )
-                        }
-                        )}
+                            }
+                        })}
+
                     </Row>
-
                 </Card>
-            </Container>
-
+            </Container >
         );
     }
 }
