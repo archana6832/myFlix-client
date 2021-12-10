@@ -160,9 +160,9 @@ export function UpdateView(user) {
                     );
                 })}
             </Form.Group>
-            <Link to={`/profile`}>
+            {/*<Link to={`/profile`}>
                 <Button variant="secondary" type="button">Back</Button>
-            </Link>
+            </Link>*/}
 
             <Button variant="primary" type="submit" onClick={handleUpdate}>Update</Button>
             <Button variant="danger" type="button" onClick={handleDeregister}>deregister</Button>
