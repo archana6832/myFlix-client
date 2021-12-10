@@ -112,8 +112,8 @@ export class ProfileView extends React.Component {
                         {movies.map((movie) => {
                             if (this.state.FavoriteMovies.includes(movie._id)) {
                                 return (
-                                    <Col xs={8} md={6} lg={4} xl={4}>
-                                        < MovieCard key={movie._id} movie={movie} />
+                                    <Col xs={8} md={6} lg={4} xl={4} key={movie.Title}>
+                                        < MovieCard movie={movie} />
                                         <Button className="buttons" variant="dark"
                                             onClick={() => this.removeFavorite(movie)}>Click to Remove</Button>
                                     </Col>
