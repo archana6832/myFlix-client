@@ -40733,10 +40733,6 @@ class ProfileView extends _reactDefault.default.Component {
     constructor(){
         super();
         this.state = {
-            Username: null,
-            Password: null,
-            Email: null,
-            Birthday: null,
             FavoriteMovies: []
         };
     }
@@ -40785,7 +40781,7 @@ class ProfileView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 74
+                lineNumber: 72
             },
             __self: this,
             children: [
@@ -40793,21 +40789,21 @@ class ProfileView extends _reactDefault.default.Component {
                     className: "profile-view",
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 75
+                        lineNumber: 73
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Header, {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 76
+                                lineNumber: 74
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                                 className: "userdetails",
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 77
+                                    lineNumber: 75
                                 },
                                 __self: this,
                                 children: [
@@ -40815,7 +40811,7 @@ class ProfileView extends _reactDefault.default.Component {
                                         className: "label",
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 78
+                                            lineNumber: 76
                                         },
                                         __self: this,
                                         children: "User Details: "
@@ -40824,7 +40820,7 @@ class ProfileView extends _reactDefault.default.Component {
                                         className: "value",
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 79
+                                            lineNumber: 77
                                         },
                                         __self: this,
                                         children: this.state.Username
@@ -40835,7 +40831,7 @@ class ProfileView extends _reactDefault.default.Component {
                         /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 82
+                                lineNumber: 80
                             },
                             __self: this,
                             children: [
@@ -40843,7 +40839,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     className: "username",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 83
+                                        lineNumber: 81
                                     },
                                     __self: this,
                                     children: [
@@ -40851,7 +40847,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             className: "label",
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 84
+                                                lineNumber: 82
                                             },
                                             __self: this,
                                             children: "Username: "
@@ -40860,7 +40856,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             className: "value",
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 85
+                                                lineNumber: 83
                                             },
                                             __self: this,
                                             children: this.state.Username
@@ -40871,7 +40867,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     className: "Password",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 87
+                                        lineNumber: 85
                                     },
                                     __self: this,
                                     children: [
@@ -40879,7 +40875,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             className: "label",
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 88
+                                                lineNumber: 86
                                             },
                                             __self: this,
                                             children: "Password: "
@@ -40888,7 +40884,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             className: "value",
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 89
+                                                lineNumber: 87
                                             },
                                             __self: this,
                                             children: "******"
@@ -40899,7 +40895,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     className: "Email",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 91
+                                        lineNumber: 89
                                     },
                                     __self: this,
                                     children: [
@@ -40907,7 +40903,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             className: "label",
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 92
+                                                lineNumber: 90
                                             },
                                             __self: this,
                                             children: "Email: "
@@ -40916,7 +40912,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             className: "value",
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 93
+                                                lineNumber: 91
                                             },
                                             __self: this,
                                             children: this.state.Email
@@ -40927,7 +40923,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     className: "Birthday",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 95
+                                        lineNumber: 93
                                     },
                                     __self: this,
                                     children: [
@@ -40935,7 +40931,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             className: "label",
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 96
+                                                lineNumber: 94
                                             },
                                             __self: this,
                                             children: "Birthday: "
@@ -40944,7 +40940,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             className: "value",
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 97
+                                                lineNumber: 95
                                             },
                                             __self: this,
                                             children: this.state.Birthday
@@ -40959,7 +40955,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     },
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 100
+                                        lineNumber: 98
                                     },
                                     __self: this,
                                     children: "Back"
@@ -40967,7 +40963,7 @@ class ProfileView extends _reactDefault.default.Component {
                                 /*#__PURE__*/ _jsxRuntime.jsx("span", {
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 101
+                                        lineNumber: 99
                                     },
                                     __self: this,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -40976,7 +40972,7 @@ class ProfileView extends _reactDefault.default.Component {
                                         variant: "primary",
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 102
+                                            lineNumber: 100
                                         },
                                         __self: this,
                                         children: "Update "
@@ -40990,14 +40986,14 @@ class ProfileView extends _reactDefault.default.Component {
                     className: "cardFav",
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 106
+                        lineNumber: 104
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 109
+                                lineNumber: 107
                             },
                             __self: this,
                             children: "Favourite Movies"
@@ -41006,7 +41002,7 @@ class ProfileView extends _reactDefault.default.Component {
                             className: "favorite-movies",
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 110
+                                lineNumber: 108
                             },
                             __self: this,
                             children: movies.map((movie)=>{
@@ -41017,7 +41013,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     xl: 4,
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 114
+                                        lineNumber: 112
                                     },
                                     __self: this,
                                     children: [
@@ -41025,7 +41021,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             movie: movie,
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 115
+                                                lineNumber: 113
                                             },
                                             __self: this
                                         }, movie._id),
@@ -41036,7 +41032,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             ,
                                             __source: {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 116
+                                                lineNumber: 114
                                             },
                                             __self: this,
                                             children: "Click to Remove"
@@ -41090,12 +41086,12 @@ var _updateViewScss = require("./update-view.scss");
 var _s = $RefreshSig$();
 function UpdateView(user) {
     _s();
-    const [name, setUsername] = _react.useState('');
+    const [userName, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
     const [birthday, setBirthday] = _react.useState('');
     //form validation
-    const [usernameError, setUsernameError] = _react.useState({
+    const [userNameError, setUsernameError] = _react.useState({
     });
     const [passwordError, setPasswordError] = _react.useState({
     });
@@ -41124,10 +41120,10 @@ function UpdateView(user) {
             }).then((response)=>{
                 const data = response.data;
                 console.log(data);
-                alert('user has been updated');
+                alert('Username cannot be changed.user details has been updated');
             }).catch((e1)=>{
                 alert('Error');
-                console.log('error updating the user');
+                console.log('Username cannot be changed.error updating the user');
             });
         }
     };
@@ -41149,7 +41145,7 @@ function UpdateView(user) {
     };
     //Form Validation
     const formValidation = ()=>{
-        let usernameError1 = {
+        let userNameError1 = {
         };
         let passwordError1 = {
         };
@@ -41158,12 +41154,12 @@ function UpdateView(user) {
         let birthdateError1 = {
         };
         let isValid = true;
-        if (username === '') {
-            usernameError1.usernameEmpty = alert("Please enter a valid username.");
+        if (userName === '') {
+            userNameError1.userNameEmpty = alert("Please enter your username.");
             isValid = false;
         }
-        if (username.trim().length < 5) {
-            usernameError1.usernameShort = alert("Username needs to be at least 5 characters long.");
+        if (userName.trim().length < 5) {
+            userNameError1.userNameShort = alert("Username needs to be at least 5 characters long.");
             isValid = false;
         }
         if (password.trim().length < 8) {
@@ -41178,7 +41174,7 @@ function UpdateView(user) {
             birthdateError1.birthdateEmpty = alert("Please enter your birthday.");
             isValid = false;
         }
-        setUsernameError(usernameError1);
+        setUsernameError(userNameError1);
         setPasswordError(passwordError1);
         setEmailError(emailError1);
         setBirthdateError(birthdateError1);
@@ -41219,14 +41215,14 @@ function UpdateView(user) {
                         },
                         __self: this
                     }),
-                    Object.keys(usernameError).map((key)=>{
+                    Object.keys(userNameError).map((key)=>{
                         return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                             __source: {
                                 fileName: "src/components/update-view/update-view.jsx",
                                 lineNumber: 118
                             },
                             __self: this,
-                            children: usernameError[key]
+                            children: userNameError[key]
                         }, key));
                     })
                 ]
@@ -41391,7 +41387,7 @@ function UpdateView(user) {
         ]
     }));
 }
-_s(UpdateView, "IXOX5zsvDgyHTlP7nATqAhnpmWc=");
+_s(UpdateView, "JNRmcitUPLt6i76wU9mswl1Ifhs=");
 _c = UpdateView;
 UpdateView.propTypes = {
     update: _propTypesDefault.default.shape({
