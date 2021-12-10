@@ -32,7 +32,7 @@ export function UpdateView(user) {
             console.log(user);
 
             axios.put(`https://myflix-moviesapp.herokuapp.com/users/${username}`, {
-                Username: username, //cant update username
+                Username: userName,
                 Password: password,
                 Email: email,
                 Birthday: birthday,
@@ -42,11 +42,11 @@ export function UpdateView(user) {
                 .then(response => {
                     const data = response.data;
                     console.log(data);
-                    alert('Username cannot be changed.user details has been updated');
+                    alert('User details has been updated');
                 })
                 .catch(e => {
                     alert('Error')
-                    console.log('Username cannot be changed.error updating the user')
+                    console.log('Error updating the user')
                 });
         };
     }
