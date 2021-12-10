@@ -23330,7 +23330,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 159
+                                    lineNumber: 160
                                 },
                                 __self: this
                             })
@@ -41348,24 +41348,6 @@ function UpdateView(user) {
                         }, key));
                     })
                 ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                to: `/profile`,
-                __source: {
-                    fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 163
-                },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                    variant: "secondary",
-                    type: "button",
-                    __source: {
-                        fileName: "src/components/update-view/update-view.jsx",
-                        lineNumber: 164
-                    },
-                    __self: this,
-                    children: "Back"
-                })
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                 variant: "primary",
