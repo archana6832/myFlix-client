@@ -7,13 +7,14 @@ import './update-view.scss';
 
 export function UpdateView(user) {
 
-    const [name, setUsername] = useState('');
+    const [userName, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [birthday, setBirthday] = useState('');
 
+
     //form validation
-    const [usernameError, setUsernameError] = useState({});
+    const [userNameError, setUsernameError] = useState({});
     const [passwordError, setPasswordError] = useState({});
     const [emailError, setEmailError] = useState({});
     const [birthdateError, setBirthdateError] = useState({});
@@ -29,24 +30,23 @@ export function UpdateView(user) {
         if (setisValid) {
             //Update user
             console.log(user);
+
             axios.put(`https://myflix-moviesapp.herokuapp.com/users/${username}`, {
-                Username: username,
+                Username: username, //cant update username
                 Password: password,
                 Email: email,
-                Birthday: birthday
-
+                Birthday: birthday,
             }, {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(response => {
                     const data = response.data;
                     console.log(data);
-                    alert('user has been updated');
-
+                    alert('Username cannot be changed.user details has been updated');
                 })
                 .catch(e => {
                     alert('Error')
-                    console.log('error updating the user')
+                    console.log('Username cannot be changed.error updating the user')
                 });
         };
     }
@@ -70,19 +70,19 @@ export function UpdateView(user) {
     //Form Validation
 
     const formValidation = () => {
-        let usernameError = {};
+        let userNameError = {};
         let passwordError = {};
         let emailError = {};
         let birthdateError = {};
         let isValid = true;
 
-        if (username === '') {
-            usernameError.usernameEmpty = alert("Please enter a valid username.");
+        if (userName === '') {
+            userNameError.userNameEmpty = alert("Please enter your username.");
             isValid = false;
         }
 
-        if (username.trim().length < 5) {
-            usernameError.usernameShort = alert("Username needs to be at least 5 characters long.");
+        if (userName.trim().length < 5) {
+            userNameError.userNameShort = alert("Username needs to be at least 5 characters long.");
             isValid = false;
         }
 
@@ -100,7 +100,7 @@ export function UpdateView(user) {
             birthdateError.birthdateEmpty = alert("Please enter your birthday.");
             isValid = false;
         }
-        setUsernameError(usernameError);
+        setUsernameError(userNameError);
         setPasswordError(passwordError);
         setEmailError(emailError);
         setBirthdateError(birthdateError);
@@ -113,10 +113,10 @@ export function UpdateView(user) {
                 <Form.Label>Username: </Form.Label>
                 <Form.Control type="text" required
                     onChange={e => setUsername(e.target.value)} />
-                {Object.keys(usernameError).map((key) => {
+                {Object.keys(userNameError).map((key) => {
                     return (
                         <div key={key}>
-                            {usernameError[key]}
+                            {userNameError[key]}
                         </div>
                     );
                 })}
