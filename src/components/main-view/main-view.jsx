@@ -86,7 +86,7 @@ export class MainView extends React.Component {
     };
 
     render() {
-        const { movies, user } = this.state;
+        const { movies, user, username } = this.state;
         return (
             <Container>
                 <Router>
@@ -95,7 +95,7 @@ export class MainView extends React.Component {
                         <Navbar.Brand href="/">myFlix</Navbar.Brand>
                         <Nav className="me-auto">
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/profile">Profile</Nav.Link>
+                            {/*<Nav.Link href="/profile">Profile</Nav.Link>*/}
                             <Nav.Link href="/profile">{user}</Nav.Link>
                             <Nav.Link onClick={() => { this.onLoggedOut() }}>
                                 {user ? "Logout" : "LogIn"}
