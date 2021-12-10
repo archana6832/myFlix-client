@@ -23099,7 +23099,7 @@ class MainView extends _reactDefault.default.Component {
         window.open("/", "_self");
     }
     render() {
-        const { movies , user  } = this.state;
+        const { movies , user , username  } = this.state;
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
@@ -23148,15 +23148,6 @@ class MainView extends _reactDefault.default.Component {
                                         },
                                         __self: this,
                                         children: "Home"
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                        href: "/profile",
-                                        __source: {
-                                            fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 98
-                                        },
-                                        __self: this,
-                                        children: "Profile"
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                         href: "/profile",
