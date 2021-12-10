@@ -20,6 +20,7 @@ export class ProfileView extends React.Component {
     }
 
     componentDidMount() {
+
         let accessToken = localStorage.getItem("token");
         if (accessToken !== null) {
             this.setState({
