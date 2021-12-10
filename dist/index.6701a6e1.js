@@ -23156,7 +23156,16 @@ class MainView extends _reactDefault.default.Component {
                                             lineNumber: 98
                                         },
                                         __self: this,
-                                        children: this.state.user
+                                        children: "Profile"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                        href: "/profile",
+                                        __source: {
+                                            fileName: "src/components/main-view/main-view.jsx",
+                                            lineNumber: 99
+                                        },
+                                        __self: this,
+                                        children: user
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                         onClick: ()=>{
@@ -23164,7 +23173,7 @@ class MainView extends _reactDefault.default.Component {
                                         },
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 99
+                                            lineNumber: 100
                                         },
                                         __self: this,
                                         children: user ? "Logout" : "LogIn"
@@ -23177,7 +23186,7 @@ class MainView extends _reactDefault.default.Component {
                         className: "main-view justify-content-md-center",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 106
+                            lineNumber: 107
                         },
                         __self: this,
                         children: [
@@ -23203,7 +23212,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 108
+                                    lineNumber: 109
                                 },
                                 __self: this
                             }),
@@ -23220,7 +23229,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 120
+                                    lineNumber: 121
                                 },
                                 __self: this
                             }),
@@ -23246,7 +23255,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 127
+                                    lineNumber: 128
                                 },
                                 __self: this
                             }),
@@ -23272,7 +23281,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 136
+                                    lineNumber: 137
                                 },
                                 __self: this
                             }),
@@ -23298,7 +23307,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 145
+                                    lineNumber: 146
                                 },
                                 __self: this
                             }),
@@ -23316,7 +23325,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 154
+                                    lineNumber: 155
                                 },
                                 __self: this
                             }),
@@ -23330,7 +23339,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 158
+                                    lineNumber: 159
                                 },
                                 __self: this
                             })
@@ -41125,6 +41134,7 @@ function UpdateView(user) {
                 const data = response.data;
                 console.log(data);
                 alert('User details has been updated');
+                localStorage.setItem('user', userName);
             }).catch((e1)=>{
                 alert('Error');
                 console.log('Error updating the user');
@@ -41188,7 +41198,7 @@ function UpdateView(user) {
         className: "updateForm",
         __source: {
             fileName: "src/components/update-view/update-view.jsx",
-            lineNumber: 111
+            lineNumber: 114
         },
         __self: this,
         children: [
@@ -41196,14 +41206,14 @@ function UpdateView(user) {
                 controlId: "formUsername",
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 112
+                    lineNumber: 115
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 113
+                            lineNumber: 116
                         },
                         __self: this,
                         children: "Username: "
@@ -41215,7 +41225,7 @@ function UpdateView(user) {
                         ,
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 114
+                            lineNumber: 117
                         },
                         __self: this
                     }),
@@ -41223,7 +41233,7 @@ function UpdateView(user) {
                         return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                             __source: {
                                 fileName: "src/components/update-view/update-view.jsx",
-                                lineNumber: 118
+                                lineNumber: 121
                             },
                             __self: this,
                             children: userNameError[key]
@@ -41235,14 +41245,14 @@ function UpdateView(user) {
                 controlId: "pasword",
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 125
+                    lineNumber: 128
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 126
+                            lineNumber: 129
                         },
                         __self: this,
                         children: "Password:"
@@ -41254,7 +41264,7 @@ function UpdateView(user) {
                         ,
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 127
+                            lineNumber: 130
                         },
                         __self: this
                     }),
@@ -41262,7 +41272,7 @@ function UpdateView(user) {
                         return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                             __source: {
                                 fileName: "src/components/update-view/update-view.jsx",
-                                lineNumber: 130
+                                lineNumber: 133
                             },
                             __self: this,
                             children: passwordError[key]
@@ -41274,14 +41284,14 @@ function UpdateView(user) {
                 controlId: "email",
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 137
+                    lineNumber: 140
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 138
+                            lineNumber: 141
                         },
                         __self: this,
                         children: "Email: "
@@ -41293,7 +41303,7 @@ function UpdateView(user) {
                         ,
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 139
+                            lineNumber: 142
                         },
                         __self: this
                     }),
@@ -41301,7 +41311,7 @@ function UpdateView(user) {
                         return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                             __source: {
                                 fileName: "src/components/update-view/update-view.jsx",
-                                lineNumber: 142
+                                lineNumber: 145
                             },
                             __self: this,
                             children: emailError[key]
@@ -41313,14 +41323,14 @@ function UpdateView(user) {
                 controlId: "birthday",
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 149
+                    lineNumber: 152
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 150
+                            lineNumber: 153
                         },
                         __self: this,
                         children: "Birthday:"
@@ -41332,7 +41342,7 @@ function UpdateView(user) {
                         ,
                         __source: {
                             fileName: "src/components/update-view/update-view.jsx",
-                            lineNumber: 151
+                            lineNumber: 154
                         },
                         __self: this
                     }),
@@ -41340,7 +41350,7 @@ function UpdateView(user) {
                         return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                             __source: {
                                 fileName: "src/components/update-view/update-view.jsx",
-                                lineNumber: 154
+                                lineNumber: 157
                             },
                             __self: this,
                             children: birthdateError[key]
@@ -41352,7 +41362,7 @@ function UpdateView(user) {
                 to: `/profile`,
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 160
+                    lineNumber: 163
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -41360,7 +41370,7 @@ function UpdateView(user) {
                     type: "button",
                     __source: {
                         fileName: "src/components/update-view/update-view.jsx",
-                        lineNumber: 161
+                        lineNumber: 164
                     },
                     __self: this,
                     children: "Back"
@@ -41372,7 +41382,7 @@ function UpdateView(user) {
                 onClick: handleUpdate,
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 164
+                    lineNumber: 167
                 },
                 __self: this,
                 children: "Update"
@@ -41383,7 +41393,7 @@ function UpdateView(user) {
                 onClick: handleDeregister,
                 __source: {
                     fileName: "src/components/update-view/update-view.jsx",
-                    lineNumber: 165
+                    lineNumber: 168
                 },
                 __self: this,
                 children: "deregister"
