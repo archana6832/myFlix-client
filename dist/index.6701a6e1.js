@@ -41113,7 +41113,7 @@ function UpdateView(user) {
             //Update user
             console.log(user);
             _axiosDefault.default.put(`https://myflix-moviesapp.herokuapp.com/users/${username}`, {
-                Username: username,
+                Username: userName,
                 Password: password,
                 Email: email,
                 Birthday: birthday
@@ -41124,10 +41124,10 @@ function UpdateView(user) {
             }).then((response)=>{
                 const data = response.data;
                 console.log(data);
-                alert('Username cannot be changed.user details has been updated');
+                alert('User details has been updated');
             }).catch((e1)=>{
                 alert('Error');
-                console.log('Username cannot be changed.error updating the user');
+                console.log('Error updating the user');
             });
         }
     };
