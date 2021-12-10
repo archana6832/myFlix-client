@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
@@ -43,7 +44,9 @@ export function UpdateView(user) {
                     const data = response.data;
                     console.log(data);
                     alert('User details has been updated');
+                    localStorage.setItem('user', userName);
                 })
+
                 .catch(e => {
                     alert('Error')
                     console.log('Error updating the user')
