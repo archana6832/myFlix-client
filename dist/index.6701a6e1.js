@@ -41028,7 +41028,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                 lineNumber: 116
                                             },
                                             __self: this
-                                        }, movie._id),
+                                        }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                             className: "buttons",
                                             variant: "dark",
@@ -41042,7 +41042,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             children: "Click to Remove"
                                         })
                                     ]
-                                }));
+                                }, movie.Title));
                             })
                         })
                     ]
