@@ -4,7 +4,7 @@ The code will allow for a client interface to be built using REACT. This will co
 Additional description about the project and its features.
 
 ## Essential Views and Features:
-1.Login view
+ ## 1.Login view
 
 Allows users to log in with a username and password
 
