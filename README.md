@@ -8,31 +8,31 @@ Additional description about the project and its features.
 
 Allows users to log in with a username and password
 
-2.Registration view
+## 2.Registration view
 
 Allows new users to register (username, password, email, birthday)
 
-3.Main view
+## 3.Main view
 
 Returns a list of ALL movies to the user (each listed item with an image, title, and release year)
 Sorting and filtering
 Ability to select a movie for more details
 
-4.Single Movie view
+## 4.Single Movie view
 
 Returns data (image, title, release year, description, genre, director, actors) about a single movie to the user.
 Allows users to add a movie to their list of favorites
 Allow users to move to director and genre view
 
-5.Director view
+## 5.Director view
 
 Returns data about a director's name, bio and birth year.
 
-6.Genre view
+## 6.Genre view
 
 Returns data about a genre, with a name and description.
 
-7.Profile view
+## 7.Profile view
 
 Allows users to update their user info (username, password, email, date of birth)
 Allows existing users to deregister
