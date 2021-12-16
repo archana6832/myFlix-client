@@ -1,13 +1,19 @@
 import React from 'react';
 import axios from 'axios';
+
+import { connect } from 'react-redux'; //react-redux
+
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { setMovies } from '../../actions/actions';//actions movies
+import { setUser } from '../../actions/actions';//actions user
 import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap'; // React Bootstrap
 import './main-view.scss'; //import .scss
 
+import MoviesList from '../movies-list/movies-list';
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
+//import { MovieCard } from '../movie-card/movie-card'; // will be imported and used in MoviesList 
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
@@ -15,13 +21,12 @@ import { ProfileView } from '../profile-view/profile-view';
 import { UpdateView } from '../update-view/update-view';
 
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
 
     constructor() {
         super();
         // Initial state is set to null
         this.state = {
-            movies: [],
             user: null
         };
     }
@@ -35,6 +40,7 @@ export class MainView extends React.Component {
         )
             .then((response) => {
                 this.setState({ userObject: response.data })
+
             })
             .catch(function (error) {
                 console.log(error);
@@ -47,10 +53,9 @@ export class MainView extends React.Component {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
-                // Assign the result to the state
-                this.setState({
-                    movies: response.data
-                });
+                // Action added
+                this.props.setMovies(response.data);
+
             })
             .catch(function (error) {
                 console.log(error);
@@ -86,7 +91,8 @@ export class MainView extends React.Component {
     };
 
     render() {
-        const { movies, user, username } = this.state;
+        let { movies } = this.props;
+        let { user } = this.state;
         return (
             <Container>
                 <Router>
@@ -95,8 +101,8 @@ export class MainView extends React.Component {
                         <Navbar.Brand href="/">myFlix</Navbar.Brand>
                         <Nav className="me-auto">
                             <Nav.Link href="/">Home</Nav.Link>
-                            {/*<Nav.Link href="/profile">Profile</Nav.Link>*/}
-                            <Nav.Link href="/profile">{user}</Nav.Link>
+                            <Nav.Link href="/profile">Profile</Nav.Link>
+                            {/* <Nav.Link href="/profile">{user}</Nav.Link>*/}
                             <Nav.Link onClick={() => { this.onLoggedOut() }}>
                                 {user ? "Logout" : "LogIn"}
                             </Nav.Link>
@@ -111,11 +117,7 @@ export class MainView extends React.Component {
                                 <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                             </Col>
                             if (movies.length === 0) return <div className="main-view" />;
-                            return movies.map(m => (
-                                <Col md={3} key={m._id}>
-                                    <MovieCard movie={m} />
-                                </Col>
-                            ))
+                            return <MoviesList movies={movies} />;//MovieList added
                         }} />
 
                         <Route path="/register" render={() => {
@@ -168,4 +170,13 @@ export class MainView extends React.Component {
 }
 
 
+let mapStateToProps = state => {
+    return {
+        movies: state.movies,
+        user: state.user
+    }
+}
+
+
+export default connect(mapStateToProps, { setUser, setMovies })(MainView);
 
