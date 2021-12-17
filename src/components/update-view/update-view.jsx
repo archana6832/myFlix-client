@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import './update-view.scss';
 
+
 import { connect } from 'react-redux';
 
 export function UpdateView(user) {
@@ -172,4 +173,5 @@ export function UpdateView(user) {
         </Form>
     );
 }
+
 
