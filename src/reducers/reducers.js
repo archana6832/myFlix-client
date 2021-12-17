@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { SET_FILTER, SET_MOVIES, SET_USER, UPDATE_USER } from '../actions/actions';
+import { SET_FILTER, SET_MOVIES, SET_USER } from '../actions/actions';
 
 function visibilityFilter(state = '', action) {
     switch (action.type) {
@@ -21,16 +21,11 @@ function movies(state = [], action) {
     }
 }
 
-function user(state = [], action) {
+function user(state = null, action) {
     switch (action.type) {
         case SET_USER:
             console.log('Set_User reducer reached')
-            return action.user;
-
-        case UPDATE_USER:
             return action.value;
-        default:
-            return state;
     }
 }
 
