@@ -43199,7 +43199,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             columnNumber: 29
                                         },
                                         __self: this,
-                                        children: this.state.Username
+                                        children: user
                                     })
                                 ]
                             })
@@ -43239,7 +43239,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                 columnNumber: 29
                                             },
                                             __self: this,
-                                            children: this.state.Username
+                                            children: user
                                         })
                                     ]
                                 }),
