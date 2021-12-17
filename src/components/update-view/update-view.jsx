@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import './update-view.scss';
-import { setUser, updateUser } from '../../actions/actions';
+
 import { connect } from 'react-redux';
 
 export function UpdateView(user) {
@@ -47,7 +47,7 @@ export function UpdateView(user) {
                     console.log(data);
                     alert('User details has been updated');
                     localStorage.setItem('user', userName);
-                    props.updateUser(response.data);
+
                 })
 
                 .catch(e => {
@@ -173,11 +173,3 @@ export function UpdateView(user) {
     );
 }
 
-let mapStateToProps = state => {
-    return {
-        user: state.user,
-        movies: state.movies
-    }
-}
-
-export default connect(mapStateToProps, { setUser, updateUser })(UpdateView);
