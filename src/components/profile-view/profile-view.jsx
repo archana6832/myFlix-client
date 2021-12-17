@@ -78,13 +78,13 @@ export class ProfileView extends React.Component {
                     <Card.Header>
                         <div className="userdetails">
                             <span className="label">User Details: </span>
-                            <span className="value">{this.state.Username}</span>
+                            <span className="value">{user}</span>
                         </div>
                     </Card.Header>
                     <Card.Body>
                         <div className="username">
                             <span className="label">Username: </span>
-                            <span className="value">{this.state.Username}</span>
+                            <span className="value">{user}</span>
                         </div>
                         <div className="Password">
                             <span className="label">Password: </span>
