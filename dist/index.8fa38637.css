@@ -1,0 +1,43 @@
+.main-view {
+  width: 100%;
+}
+
+.mainNavbar {
+  background-color: #dc5314;
+}
+
+
+
+
+.director-view {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.director-button {
+  margin-top: 1rem;
+}
+
+.director-name {
+  text-align: center;
+  font-weight: bold;
+}
+.genre-view {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.genre-button {
+  margin-top: 1rem;
+}
+
+.genre-name {
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.8fa38637.css.map */
