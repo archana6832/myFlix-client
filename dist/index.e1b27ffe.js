@@ -25708,15 +25708,11 @@ function movies(state = [], action) {
             return state;
     }
 }
-function user(state = [], action) {
+function user(state = null, action) {
     switch(action.type){
         case _actions.SET_USER:
             console.log('Set_User reducer reached');
-            return action.user;
-        case _actions.UPDATE_USER:
             return action.value;
-        default:
-            return state;
     }
 }
 const moviesApp = _redux.combineReducers({
@@ -25735,20 +25731,15 @@ parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
 );
 parcelHelpers.export(exports, "SET_USER", ()=>SET_USER
 );
-parcelHelpers.export(exports, "UPDATE_USER", ()=>UPDATE_USER
-);
 parcelHelpers.export(exports, "setMovies", ()=>setMovies
 );
 parcelHelpers.export(exports, "setFilter", ()=>setFilter
 );
 parcelHelpers.export(exports, "setUser", ()=>setUser
 );
-parcelHelpers.export(exports, "updateUser", ()=>updateUser
-);
 const SET_MOVIES = 'SET_MOVIES';
 const SET_FILTER = 'SET_FILTER';
 const SET_USER = 'SET_USER';
-const UPDATE_USER = 'UPDATE USER';
 function setMovies(value) {
     console.log('Set movies action triggered');
     return {
@@ -25766,13 +25757,6 @@ function setUser(value) {
     console.log('set_user action triggered');
     return {
         type: SET_USER,
-        value
-    };
-}
-function updateUser(value) {
-    console.log('update_user action triggered');
-    return {
-        type: UPDATE_USER,
         value
     };
 }
@@ -25811,7 +25795,7 @@ class MainView extends _reactDefault.default.Component {
         super();
         // Initial state is set to null
         this.state = {
-            user: null
+            userObject: null
         };
     }
     getUser(token) {
@@ -25821,6 +25805,7 @@ class MainView extends _reactDefault.default.Component {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
+            // Action added
             this.setState({
                 userObject: response.data
             });
@@ -25844,16 +25829,14 @@ class MainView extends _reactDefault.default.Component {
     componentDidMount() {
         let accessToken = localStorage.getItem('token');
         if (accessToken !== null) {
-            this.setState({
-                user: localStorage.getItem('user')
-            });
+            this.props.setUser(localStorage.getItem('user'));
             this.getMovies(accessToken);
             this.getUser(accessToken);
         }
     }
     /* When a user successfully logs in, this function updates the `user` property in state to that *particular user */ onLoggedIn(authData) {
         console.log(authData);
-        this.setState({
+        this.props.setUser({
             user: authData.user.Username
         });
         localStorage.setItem('token', authData.token);
@@ -25867,18 +25850,18 @@ class MainView extends _reactDefault.default.Component {
     }
     render() {
         let { movies  } = this.props;
-        let { user: user1  } = this.state;
+        let { user: user1  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 97,
+                lineNumber: 96,
                 columnNumber: 13
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 98,
+                    lineNumber: 97,
                     columnNumber: 17
                 },
                 __self: this,
@@ -25889,7 +25872,7 @@ class MainView extends _reactDefault.default.Component {
                         className: "mainNavbar",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 99,
+                            lineNumber: 98,
                             columnNumber: 21
                         },
                         __self: this,
@@ -25898,7 +25881,7 @@ class MainView extends _reactDefault.default.Component {
                                 href: "/",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 101,
+                                    lineNumber: 100,
                                     columnNumber: 25
                                 },
                                 __self: this,
@@ -25908,7 +25891,7 @@ class MainView extends _reactDefault.default.Component {
                                 className: "me-auto",
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 102,
+                                    lineNumber: 101,
                                     columnNumber: 25
                                 },
                                 __self: this,
@@ -25917,7 +25900,7 @@ class MainView extends _reactDefault.default.Component {
                                         href: "/",
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 103,
+                                            lineNumber: 102,
                                             columnNumber: 29
                                         },
                                         __self: this,
@@ -25927,7 +25910,7 @@ class MainView extends _reactDefault.default.Component {
                                         href: "/profile",
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 104,
+                                            lineNumber: 103,
                                             columnNumber: 29
                                         },
                                         __self: this,
@@ -25939,7 +25922,7 @@ class MainView extends _reactDefault.default.Component {
                                         },
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 106,
+                                            lineNumber: 105,
                                             columnNumber: 29
                                         },
                                         __self: this,
@@ -25953,7 +25936,7 @@ class MainView extends _reactDefault.default.Component {
                         className: "main-view justify-content-md-center",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 113,
+                            lineNumber: 112,
                             columnNumber: 21
                         },
                         __self: this,
@@ -25976,7 +25959,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 115,
+                                    lineNumber: 114,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -25994,7 +25977,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 123,
+                                    lineNumber: 122,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -26021,7 +26004,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 130,
+                                    lineNumber: 129,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -26048,7 +26031,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 139,
+                                    lineNumber: 138,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -26075,7 +26058,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 148,
+                                    lineNumber: 147,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -26094,7 +26077,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 157,
+                                    lineNumber: 156,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -26109,7 +26092,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 162,
+                                    lineNumber: 161,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -43484,7 +43467,6 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactRouterDom = require("react-router-dom");
 var _updateViewScss = require("./update-view.scss");
-var _actions = require("../../actions/actions");
 var _reactRedux = require("react-redux");
 var _s = $RefreshSig$();
 function UpdateView(user) {
@@ -43525,7 +43507,6 @@ function UpdateView(user) {
                 console.log(data);
                 alert('User details has been updated');
                 localStorage.setItem('user', userName);
-                props.updateUser(response.data);
             }).catch((e)=>{
                 alert('Error');
                 console.log('Error updating the user');
@@ -43795,16 +43776,6 @@ function UpdateView(user) {
 }
 _s(UpdateView, "JNRmcitUPLt6i76wU9mswl1Ifhs=");
 _c = UpdateView;
-let mapStateToProps = (state)=>{
-    return {
-        user: state.user,
-        movies: state.movies
-    };
-};
-exports.default = _reactRedux.connect(mapStateToProps, {
-    setUser: _actions.setUser,
-    updateUser: _actions.updateUser
-})(UpdateView);
 var _c;
 $RefreshReg$(_c, "UpdateView");
 
@@ -43813,6 +43784,6 @@ $RefreshReg$(_c, "UpdateView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","prop-types":"2bysO","axios":"1IeuP","react-router-dom":"etVME","./update-view.scss":"bPMvw","../../actions/actions":"6dgbZ","react-redux":"lT3ms","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"bPMvw":[function() {},{}],"hlAnh":[function() {},{}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequireaec4")
+},{"react/jsx-runtime":"6Ds2u","react":"4mchR","react-bootstrap":"9qMdX","prop-types":"2bysO","axios":"1IeuP","react-router-dom":"etVME","./update-view.scss":"bPMvw","react-redux":"lT3ms","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"9pz13"}],"bPMvw":[function() {},{}],"hlAnh":[function() {},{}]},["emU3S","90ZSn","dB8et"], "dB8et", "parcelRequireaec4")
 
 //# sourceMappingURL=index.e1b27ffe.js.map
