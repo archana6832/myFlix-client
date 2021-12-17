@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import './movie-view.scss';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { Button, Card } from 'react-bootstrap';
 
+
+//Class component MovieView
 export class MovieView extends React.Component {
-
-
 
     addFavorite(movie) {
         const token = localStorage.getItem('token');
@@ -24,6 +25,7 @@ export class MovieView extends React.Component {
     }
 
     render() {
+
         const { movie, onBackClick } = this.props;
 
         return (
@@ -39,17 +41,30 @@ export class MovieView extends React.Component {
                     <span className="label">Description: </span>
                     <span className="value">{movie.Description}</span>
                 </div>
-                <div className="movie-director">
-                    <span className="label">Director: </span>
-                    <span className="value">{movie.Director.Name}</span>
+                <div>
+                    <Link className="label" to={`/directors/${movie.Director.Name}`}>
+                        Director: {movie.Director.Name}
+                    </Link>
                 </div>
-                <div className="movie-genre">
-                    <span className="label">Genre: </span>
-                    <span className="value">{movie.Genre.Name}</span>
+                <div>
+                    <Link className="label" to={`/genres/${movie.Genre.Name}`}>
+                        Genre: {movie.Genre.Name}
+                    </Link>
                 </div>
+                {/*<div className="bottomButtons">
+                    <Link to={`/directors/${movie.Director.Name}`}>
+                        <Button variant='dark' className="movie-buttons">Director: {movie.Director.Name}</Button>
+                    </Link>
 
-                <button onClick={() => { onBackClick(null); }}>Back</button>
-                <button variant="dark" onClick={() => this.addFavorite(movie)}>Add to Favorites</button>
+                    <Link to={`/genres/${movie.Genre.Name}`}>
+                        <Button variant='dark' className="movie-buttons">Genre: {movie.Genre.Name}</Button>
+                    </Link>
+        </div>*/}
+
+                <div className="bottomButtons">
+                    <Button className="backButton" variant="danger" onClick={() => { onBackClick(null); }}>Back</Button>
+                    <Button className="favButton" variant="dark" onClick={() => this.addFavorite(movie)}>Add to Favorites</Button>
+                </div>
 
             </div>
         );
