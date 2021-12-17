@@ -25919,22 +25919,12 @@ class MainView extends _reactDefault.default.Component {
                                         children: "Profile"
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                        href: "/profile",
-                                        __source: {
-                                            fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 104,
-                                            columnNumber: 29
-                                        },
-                                        __self: this,
-                                        children: user1
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                         onClick: ()=>{
                                             this.onLoggedOut();
                                         },
                                         __source: {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 105,
+                                            lineNumber: 104,
                                             columnNumber: 29
                                         },
                                         __self: this,
@@ -25948,7 +25938,7 @@ class MainView extends _reactDefault.default.Component {
                         className: "main-view justify-content-md-center",
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 112,
+                            lineNumber: 111,
                             columnNumber: 21
                         },
                         __self: this,
@@ -25971,7 +25961,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 114,
+                                    lineNumber: 113,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -25989,7 +25979,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 122,
+                                    lineNumber: 121,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -26016,7 +26006,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 129,
+                                    lineNumber: 128,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -26043,7 +26033,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 138,
+                                    lineNumber: 137,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -26070,7 +26060,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 147,
+                                    lineNumber: 146,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -26089,7 +26079,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 156,
+                                    lineNumber: 155,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -26104,7 +26094,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 161,
+                                    lineNumber: 160,
                                     columnNumber: 25
                                 },
                                 __self: this
@@ -41657,7 +41647,7 @@ function VisibilityFilterInput(props) {
         onChange: (e)=>props.setFilter(e.target.value)
         ,
         value: props.visibilityFilter,
-        placeholder: "filter",
+        placeholder: "Search",
         __source: {
             fileName: "src/components/visibility-filter-input/visibility-filter-input.jsx",
             lineNumber: 9,
@@ -41878,7 +41868,7 @@ class MovieCard extends _reactDefault.default.Component {
                             },
                             __self: this,
                             children: [
-                                "Genre: ",
+                                " Genre: ",
                                 movie.Genre.Name
                             ]
                         }),
