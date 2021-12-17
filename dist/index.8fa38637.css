@@ -5,10 +5,23 @@
 .mainNavbar {
   background-color: #dc5314;
 }
+.labelname {
+  font-weight: bold;
+}
 
 
+.label {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+}
 
-
+.bottomButtons {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  justify-content: space-between;
+}
 .director-view {
   margin-top: 5rem;
   text-align: center;
