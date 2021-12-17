@@ -27,7 +27,7 @@ class MainView extends React.Component {
         super();
         // Initial state is set to null
         this.state = {
-            user: null
+            userObject: null
         };
     }
     getUser(token) {
@@ -39,7 +39,8 @@ class MainView extends React.Component {
             }
         )
             .then((response) => {
-                this.setState({ userObject: response.data })
+                // Action added
+                this.setState({ userObject: response.data });
 
             })
             .catch(function (error) {
@@ -65,9 +66,7 @@ class MainView extends React.Component {
     componentDidMount() {
         let accessToken = localStorage.getItem('token');
         if (accessToken !== null) {
-            this.setState({
-                user: localStorage.getItem('user')
-            });
+            this.props.setUser(localStorage.getItem('user'));
             this.getMovies(accessToken);
             this.getUser(accessToken);
         }
@@ -78,7 +77,7 @@ class MainView extends React.Component {
 
     onLoggedIn(authData) {
         console.log(authData);
-        this.setState({ user: authData.user.Username });
+        this.props.setUser({ user: authData.user.Username });
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
@@ -92,7 +91,7 @@ class MainView extends React.Component {
 
     render() {
         let { movies } = this.props;
-        let { user } = this.state;
+        let { user } = this.props;
         return (
             <Container>
                 <Router>
