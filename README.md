@@ -60,3 +60,6 @@ Redux
 Axios
 prop-types
 redux-devtools-extension
+
+## Netlify 
+https://myflix-client-archananair.netlify.app
