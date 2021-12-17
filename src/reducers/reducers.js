@@ -26,6 +26,8 @@ function user(state = null, action) {
         case SET_USER:
             console.log('Set_User reducer reached')
             return action.value;
+        default:
+            return state;
     }
 }
 
