@@ -13,7 +13,8 @@ export class MovieCard extends React.Component {
                 <Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous" />
                 <Card.Body>
                     <Card.Title>{movie.Title}</Card.Title>
-                    <Card.Text>{movie.Description}</Card.Text>
+                    <Card.Text className="labelname">Director: {movie.Director.Name}</Card.Text>
+                    <Card.Text className="labelname">Genre: {movie.Genre.Name}</Card.Text>
                     <Link to={`/movies/${movie._id}`}>
                         <Button variant="secondary" type="button">Details</Button>
                     </Link>
